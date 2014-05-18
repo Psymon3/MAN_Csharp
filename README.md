@@ -4,19 +4,19 @@ MAN_Csharp
 Projet de ENSIIE-MAN en C# 
 
 
-Compilation: `gmcs *.cs`
+Compilation: `gmcs *.cs`<br />
 Execution: `./main.exe [filename]`
 
 Si un fichier est passé en paramètre, le programme l'importe et crée la matrice, sinon il vous sera demandé de la créer à la main, case par case.
 
 Format du fichier:
 
-m n
-0 x x x n
-x x x x x
-x x x x x
-x x x x x
-m x x x x
+m n<br />
+0 x x x n<br />
+x x x x x<br />
+x x x x x<br />
+x x x x x<br />
+m x x x x<br />
 
 Menu:
 
