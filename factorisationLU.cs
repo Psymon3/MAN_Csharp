@@ -3,8 +3,8 @@
  	Matrix L = new Matrix(A.m,A.n);
  	for (int i = 0; i < A.n; i++){
  		for (int j =0; j < A.m; j++){
- 			if (i == j) then L.data[i,j] = 1
- 						else L.data[i,j] = 0;
+ 			if (i == j) L.data[i,j] = 1
+ 			else L.data[i,j] = 0;
  		}
  	}
 
