@@ -7,7 +7,7 @@ namespace MAN_Project
 
         public static Matrix jacobi(Matrx mat)
         {
-            Matrix jacobi = new Matrix(mat.m, mat.n);
+            Matrix jacobi = new Matrix(mat.m, mat.n); //paye ton nomage de variable : la matrice s'apelle comme la méthode ^^
             for(int i = 0; i < jacobi.m ; i++)
             {
                 for(int j = 0; j < jacobi.n ; j++)
