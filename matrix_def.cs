@@ -17,13 +17,15 @@ namespace MAN_Project
 
   		public void FillMatrix(){
 
-  			for (int i=0; i<this.m; i++){
-  				for (int j=0; j<this.n; j++){
-  					Console.WriteLine("Ligne "+(i+1)+" Colonne "+(j+1)+" ? ");
-  					double val = Convert.ToDouble(Console.ReadLine());
-  					this.data[i,j] = val;		
-  				}
-  			}
+        string[] lines = System.IO.File.ReadAllLines("matrix.txt");
+        
+        for (int i=0; i<this.m; i++){
+          Console.WriteLine(lines[i]);
+          string[] line = lines[i].Split(' ');
+          for (int j=0; j<this.n; j++){
+            this.data[i,j] = Convert.ToDouble(line[j]);   
+          }
+        }
   		}
 
   		public void PrintMatrix(){
