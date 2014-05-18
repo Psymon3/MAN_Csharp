@@ -4,7 +4,7 @@ MAN_Csharp
 Projet de ENSIIE-MAN en C# 
 
 
-Compilation: `gmcs *.cs`<br />
+Compilation: `gmcs -out:main.exe *.cs`<br />
 Execution: `./main.exe [filename]`
 
 Si un fichier est passé en paramètre, le programme l'importe et crée la matrice, sinon il vous sera demandé de la créer à la main, case par case.

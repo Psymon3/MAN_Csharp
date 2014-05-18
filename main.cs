@@ -1,4 +1,3 @@
-
 using System;
 
 namespace MAN_Project
@@ -48,7 +47,9 @@ namespace MAN_Project
 				        Console.WriteLine(choix);
 				        break;
 				    case 2:
-				        Console.WriteLine(choix);
+				        Console.WriteLine("Factorisation de Cholesky : ");
+				        Matrix chol = Cholesky.chol(mat);
+				        chol.PrintMatrix();
 				        break;
 				    case 3:
 				        Console.WriteLine(choix);
