@@ -1,4 +1,4 @@
-(matrix, matrix) factoLU(matrix A) { //renvoie un couple de matrices
+/*(matrix, matrix) factoLU(matrix A) { //renvoie un couple de matrices
 
  	Matrix L = new Matrix(A.m,A.n);
  	for (int i = 0; i < A.n; i++){
@@ -21,3 +21,4 @@
  	}
 	return (L,A);
 }
+*/

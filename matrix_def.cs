@@ -85,11 +85,11 @@ namespace MAN_Project
             return C;
         }
 
-        public Matrix IsSquare() {
+        public bool IsSquare() {
             return this.m == this.n;
         }
 
-        public Matrix IsSymetric() {
+        public bool IsSymetric() {
             for(int i=0; i < this.m; i++) {
                 for(int j=0; j<this.n; j++) {
                     if(this.data[i, j] != this.data[j, i]) {
@@ -112,17 +112,17 @@ namespace MAN_Project
 
         public Matrix CreateIdentity(int n) {
             Matrix res = new Matrix(n, n);
-            for(int i=0; i<n, i++) {
+            for(int i=0; i<n; i++) {
                 res.data[i, i] = 1;
             }
             return res;
         }
 
-        public boolean IsDiagonal() {
+        public bool IsDiagonal() {
             if(!this.IsSquare()) {
                 return false;
             }
-            boolean res = true;
+            bool res = true;
             int i = 0;
             int j = 0;
 
@@ -140,8 +140,8 @@ namespace MAN_Project
         }
 
         /* Is there a triangle superior */
-        public boolean IsTriSup() {
-            boolean res = true;
+        public bool IsTriSup() {
+            bool res = true;
             int i = 0;
             int j = 0;
 
@@ -159,8 +159,8 @@ namespace MAN_Project
         }
 
         /* Is there a triangle inferior */
-        public boolean IsTriInf() {
-            boolean res = true;
+        public bool IsTriInf() {
+            bool res = true;
             int i = 0;
             int j = 0;
 
@@ -188,7 +188,7 @@ namespace MAN_Project
             if(diff_lines <= 0) {
                 for(int i = lineTop; i<lineBottom; i++) {
                     for(int j = colLeft; j<colRight; j++) {
-                        float val = a.data[i, j];
+                        double val = a.data[i, j];
                         res.data[i - lineTop, j - colLeft] = val;
                     }
                 }
@@ -196,13 +196,13 @@ namespace MAN_Project
             else {
                 for(int i = lineTop; i<a.m; i++) {
                     for(int j = colLeft; j<colRight; j++) {
-                        float val = a.data[i, j];
+                        double val = a.data[i, j];
                         res.data[i - lineTop, j - colLeft] = val;
                     }
                 }
                 for(int i = 0; i<diff_lines; i++) {
                     for(int j=colLeft; j<colRight; j++) {
-                        float val = a.data[i, j];
+                        double val = a.data[i, j];
                         res.data[i + a.m - lineTop, j - colLeft] = val;
                     }
                 }
@@ -211,12 +211,12 @@ namespace MAN_Project
             return res;
         }
 
-        public static int Determinant(Matrix a) {
+        public static double Determinant(Matrix a) {
             if(!a.IsSquare()) {
                 return 0;
             }
             else if(a.IsDiagonal() || a.IsTriInf() || a.IsTriSup()) {
-                float res = 1;
+                double res = 1;
                 for(int i=0; i<a.m; i++) {
                     res *= a.data[i, i];
                 }
@@ -226,7 +226,7 @@ namespace MAN_Project
                 return a.data[0, 0];
             }
             else {
-                float res = 0;
+                double res = 0;
                 for(int i=0; i<a.m; i++) {
                     if(i % 2 == 0) {
                         res += a.data[i, 0] * Determinant(Matrix.getSubMatrix(a, i+1, i+ a.m, 1, a.n));
