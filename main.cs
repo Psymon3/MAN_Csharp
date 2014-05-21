@@ -56,6 +56,7 @@ namespace MAN_Project
 				       	break;
 				    case 4:
 				        Console.WriteLine(choix);
+				        Gauss_Seidel.gauss_seidel(mat);
 				        break;
 				    case 5:
 				        Console.WriteLine(choix);
