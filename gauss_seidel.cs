@@ -31,8 +31,8 @@ namespace MAN_Project
         double[,] res = new double[size,1];
         for(int i=0;i<size;i++)
         {
-         double o1 = (0);
-         double o2 = (0);
+         double o1 = 0;
+         double o2 = 0;
          for(int j=0;j<i;j++)
           {
             o1 += (mat.data[i,j]*res[j,0]);
@@ -44,8 +44,8 @@ namespace MAN_Project
         
         
           res[i,0] = (tableau_b[i] -o1 -o2);
-        
-          res[i,0] = (res[i,0]/mat.data[i,i]);
+          
+          res[i,0] = (res[i,0]/mat.data[i,i]); //Bug : ce truc donne �
         
         }
         Matrix xi = new Matrix(size,1);
@@ -54,6 +54,7 @@ namespace MAN_Project
         xi.PrintMatrix();
         if(Double.IsNaN(xi.data[0,0]))
         {
+          Console.WriteLine("NaN error --> 0");
           for(int val = 0; val<size;val++){
             xi.data[val,0]=0;
           }
@@ -75,15 +76,23 @@ namespace MAN_Project
       Matrix mat = new Matrix(4,4);
       mat.ImportMatrix("gaussseidel.txt");
       mat.PrintMatrix();
-      double[] b = {-19,1,12,1};
+      double[] b = {-1,2,3};
       Console.WriteLine("b : ");
       foreach(double d in b){
         Console.Write(d+" ");
       }
-      gauss_seidel(mat, 2, 1e-10, b);
+      gauss_seidel(mat, 2, 0.000001, b);
     }
     
   }
 }
+
+
+
+
+
+
+
+
 
 //GoT Spoil : Tyrion tue Tywin
