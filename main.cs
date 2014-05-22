@@ -23,7 +23,8 @@ namespace MAN_Project
 	    static void Main(string[] args)
 	    {
 	        Matrix mat = new Matrix(0, 0);
-
+	        PrintMenu();
+	        
 	        /* If there is a file in argument, we import it */
 	        if(args.Length > 0) {
 	        	Console.WriteLine(args[0]);
@@ -37,14 +38,13 @@ namespace MAN_Project
 
 	        mat.PrintMatrix();
 
-	        PrintMenu();
 	       	int choix = int.Parse(Console.ReadLine());
 
 	       	while(choix != 0) {
 
 	       		switch (choix) {
 				    case 1:
-				        Console.WriteLine(choix);
+				        FactorisationLU.Test1();
 				        break;
 				    case 2:
 				        Console.WriteLine("Factorisation de Cholesky : ");

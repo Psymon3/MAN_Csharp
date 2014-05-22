@@ -11,12 +11,12 @@ Si un fichier est passé en paramètre, le programme l'importe et crée la matri
 
 Format du fichier:
 
-m n<br />
-0 x x x n<br />
-x x x x x<br />
-x x x x x<br />
-x x x x x<br />
-m x x x x<br />
+m   n<br />
+0   x   x   x   n-1<br />
+x   x   x   x   x<br />
+x   x   x   x   x<br />
+x   x   x   x   x<br />
+m-1 x   x   x   x<br />
 
 Menu:
 
