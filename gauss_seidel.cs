@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace MAN_Project
 {
@@ -6,37 +7,75 @@ namespace MAN_Project
   {
 
     public static void gauss_seidel(Matrix mat){
-      Console.WriteLine("Welcome in Gauss Seidel Algorithm");
+      int size = mat.m;
+      List<Matrix> matrixList = new List<Matrix>();
+      Console.WriteLine("Welcome in Gauss Seidel Algorithm");  
+      Console.WriteLine("Number of iteration ?");
+      int ite = int.Parse(Console.ReadLine());
+      while(ite<1){
+        Console.WriteLine("Nice try ! \nGoT Spoil : Tyrion tue Tywin  ");
+        Console.WriteLine("Nombre d'iteration ?");
+        ite = int.Parse(Console.ReadLine());
+      }
+      Console.WriteLine("Precision ?");
+      double eps = Convert.ToDouble(Console.ReadLine());
       int[] tableau_b = new int[mat.m]; //tableau représentant b
       for (int i = 0 ; i < mat.n ; i++){
-        Console.WriteLine("b values ? "+(mat.m-i)+" values left");
+        Console.WriteLine("b values ? "+(size-i)+" values left");
         tableau_b[i] = int.Parse(Console.ReadLine()); 
       }
 
-      int[] tableau_xk = new int[mat.m]; //tableau représentant Xk (Et rempli avec les val de X0)
-      int[] tableau_xk1 = new int[mat.m]; //tableau représentant Xk+1
-      for (int i = 0 ; i < mat.n ; i++){
-        Console.WriteLine("x0 values ? "+(mat.m-i)+" values left");
-        tableau_xk[i] = int.Parse(Console.ReadLine()); 
+      double[,] f0 = new double[size,1]; 
+      for(int i=0;i<size;i++)
+      {
+       f0[i,0]= (0);
       }
-      Console.WriteLine("Number of iteration ?");
-      int nb_iter = int.Parse(Console.ReadLine());
-      while(nb_iter<1){
-        Console.WriteLine("Car vous avez essaye de faire planter le programme : \nSpoil de GoT : Tyrion tue Tywin  ");
-        Console.WriteLine("Nombre d'iteration ?");
-        nb_iter = int.Parse(Console.ReadLine());
-      }
-      for(int iter = 0; iter<nb_iter; iter++){
-        for(int h=0;h<mat.m;h++){ //pour remplir chaque valeur de Xk+1
-          double res;
-          for(int i=0;i<mat.m;i++){
-            for(int j=0;i<mat.n;j++){
-              tableau_b[i] = 0;
-            }
-          }
 
+      Matrix x0 = new Matrix(size,1);
+      for(int i=0;i<size;i++)
+      {
+       mat.data[i,0]= (0);
+      }
+
+      matrixList.Add(x0);
+      double diff = 1;
+      for(int k=0;diff>eps && k<ite;k++)
+      {
+        double[,] res = new double[size,1];
+        for(int i=0;i<size;i++)
+        {
+         double o1 = (0);
+         double o2 = (0);
+         for(int j=0;j<i;j++)
+          {
+            o1 += (mat.data[i,j]*res[j,0]);
+          }
+          for(int j=i+1;j<size;j++)
+          {
+            o2 += (mat.data[i,j]*matrixList[k].data[j, 0]);
+          }
+        
+        
+          res[i,0] = (tableau_b[i] -o1 -o2);
+        
+          res[i,0] = (res[i,0]/mat.data[i,i]);
+        
         }
-      }     
+        Matrix xi = new Matrix(size,1);
+        xi.data = res;
+  
+      
+        matrixList.Add(xi);
+      
+        if(k>1)
+        {
+          diff=Math.Abs(matrixList[k-1].data[0, 0] - matrixList[k].data[0, 0]);
+        }
+      
+      }
+
+      Matrix final = matrixList[matrixList.Count-1] ;
+      final.PrintMatrix();
     }
     
   }
