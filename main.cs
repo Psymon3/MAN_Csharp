@@ -55,8 +55,24 @@ namespace MAN_Project
 				        Console.WriteLine(choix);
 				       	break;
 				    case 4:
-				        Console.WriteLine(choix);
-				        Gauss_Seidel.gauss_seidel(mat);
+				        Console.WriteLine("Gauss Seidel Algorithm");
+				        Gauss_Seidel.Test1();
+				        /*
+				        int ite = int.Parse(Console.ReadLine());
+     					while(ite<1){
+        					Console.WriteLine("Nice try ! \n  ");
+        					Console.WriteLine("Nombre d'iteration ?");
+        					ite = int.Parse(Console.ReadLine());
+      					}
+      					Console.WriteLine("Precision ?");
+     					double eps = Convert.ToDouble(Console.ReadLine());
+					    double[] tableau_b = new int[mat.m]; //tableau représentant b
+					    for (int i = 0 ; i < mat.n ; i++){
+					    	Console.WriteLine("b values ? "+(size-i)+" values left");
+					        tableau_b[i] = Convert.ToDouble(Console.ReadLine()); 
+					    }
+				        Gauss_Seidel.gauss_seidel(mat, ite, eps, tableau_b);
+				        */
 				        break;
 				    case 5:
 				        Console.WriteLine(choix);

@@ -6,24 +6,11 @@ namespace MAN_Project
   public class Gauss_Seidel
   {
 
-    public static void gauss_seidel(Matrix mat){
+    public static void gauss_seidel(Matrix mat, int ite, double eps, double[] tableau_b){
       int size = mat.m;
       List<Matrix> matrixList = new List<Matrix>();
-      Console.WriteLine("Welcome in Gauss Seidel Algorithm");  
-      Console.WriteLine("Number of iteration ?");
-      int ite = int.Parse(Console.ReadLine());
-      while(ite<1){
-        Console.WriteLine("Nice try ! \nGoT Spoil : Tyrion tue Tywin  ");
-        Console.WriteLine("Nombre d'iteration ?");
-        ite = int.Parse(Console.ReadLine());
-      }
-      Console.WriteLine("Precision ?");
-      double eps = Convert.ToDouble(Console.ReadLine());
-      int[] tableau_b = new int[mat.m]; //tableau représentant b
-      for (int i = 0 ; i < mat.n ; i++){
-        Console.WriteLine("b values ? "+(size-i)+" values left");
-        tableau_b[i] = int.Parse(Console.ReadLine()); 
-      }
+      Console.WriteLine("\nWelcome in Gauss Seidel Algorithm");  
+      
 
       double[,] f0 = new double[size,1]; 
       for(int i=0;i<size;i++)
@@ -63,8 +50,14 @@ namespace MAN_Project
         }
         Matrix xi = new Matrix(size,1);
         xi.data = res;
-  
-      
+        Console.WriteLine("Iteration "+k);
+        xi.PrintMatrix();
+        if(Double.IsNaN(xi.data[0,0]))
+        {
+          for(int val = 0; val<size;val++){
+            xi.data[val,0]=0;
+          }
+        }
         matrixList.Add(xi);
       
         if(k>1)
@@ -77,6 +70,20 @@ namespace MAN_Project
       Matrix final = matrixList[matrixList.Count-1] ;
       final.PrintMatrix();
     }
+
+    public static void Test1() {
+      Matrix mat = new Matrix(4,4);
+      mat.ImportMatrix("gaussseidel.txt");
+      mat.PrintMatrix();
+      double[] b = {-19,1,12,1};
+      Console.WriteLine("b : ");
+      foreach(double d in b){
+        Console.Write(d+" ");
+      }
+      gauss_seidel(mat, 2, 1e-10, b);
+    }
     
   }
 }
+
+//GoT Spoil : Tyrion tue Tywin
