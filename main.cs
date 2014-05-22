@@ -65,7 +65,8 @@ namespace MAN_Project
 				        Console.WriteLine(choix);
 				       	break;
 				    case 7:
-				        Console.WriteLine(choix);
+				        Console.WriteLine("Approximation numérique par la méthode d'Euler explicite :\n");
+						EulerExplicite.Menu();
 				        break;
 				    case 8:
 				        Console.WriteLine(choix);
