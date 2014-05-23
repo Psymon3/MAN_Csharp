@@ -43,6 +43,9 @@ namespace MAN_Project
          double o2 = 0;
          for(int j=0;j<i;j++)
           {
+            if(!Double.IsNaN(res[j,0])){
+              res[j,0]=0.0;
+            }
             Console.WriteLine("res["+j+",0] "+res[j,0]);
             o1 += (mat.data[i,j]*res[j,0]);
           }
@@ -50,10 +53,10 @@ namespace MAN_Project
           for(int j=i+1;j<size;j++)
           {
             Console.WriteLine("mat.data["+i+","+j+"]="+mat.data[i,j]);
-            if(!Double.IsNaN(matrixList[k].data[j, 0])){
+           /* if(!Double.IsNaN(matrixList[k].data[j, 0])){
               Console.WriteLine("IsNaN matlist --> 0");
               matrixList[k].data[j, 0] = 0;
-            }
+            }*/
             Console.WriteLine("matrixList["+k+"].data["+i+",0]="+matrixList[k].data[j, 0]);
             o2 += (mat.data[i,j]*matrixList[k].data[j, 0]);
           }
@@ -94,14 +97,13 @@ namespace MAN_Project
       Matrix mat = new Matrix(4,4);
       mat.ImportMatrix("gaussseidel.txt");
       mat.PrintMatrix();
-      double[] b = {-1,2,3};
+      double[] b = {-19,1,12,1};
       Console.WriteLine("b : ");
       foreach(double d in b){
         Console.Write(d+" ");
       }
-      gauss_seidel(mat, 2, 0.000001, b);
-    }
-    
+      gauss_seidel(mat, 5, 0.0000000000000001, b);
+    }    
   }
 }
 
