@@ -13,6 +13,7 @@ namespace MAN_Project
             {
                     res[0][f] = 0.0;
             }
+        }
         public static Matrix jacobi(Matrix mat)
         {
             Matrix jacobi = new Matrix(mat.m, mat.n); //paye ton nomage de variable : la matrice s'apelle comme la méthode ^^
@@ -58,5 +59,5 @@ namespace MAN_Project
             return sum;
         }
     }
-
 }
+
