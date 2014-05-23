@@ -25,27 +25,45 @@ namespace MAN_Project
       }
 
       matrixList.Add(x0);
+      Console.WriteLine("1ere matrix");
+      matrixList[0].PrintMatrix();
       double diff = 1;
       for(int k=0;diff>eps && k<ite;k++)
       {
         double[,] res = new double[size,1];
+        //on rempli res de 0
+        for(int i=0;i<size;i++){
+          res[i,0]=0.0;
+          Console.WriteLine("Remplissage de res en cours : " + res[i,0]);
+        }
+
         for(int i=0;i<size;i++)
         {
          double o1 = 0;
          double o2 = 0;
          for(int j=0;j<i;j++)
           {
+            Console.WriteLine("res["+j+",0] "+res[j,0]);
             o1 += (mat.data[i,j]*res[j,0]);
           }
+          Console.WriteLine("o1 "+o1);
           for(int j=i+1;j<size;j++)
           {
+            Console.WriteLine("mat.data["+i+","+j+"]="+mat.data[i,j]);
+            if(!Double.IsNaN(matrixList[k].data[j, 0])){
+              Console.WriteLine("IsNaN matlist --> 0");
+              matrixList[k].data[j, 0] = 0;
+            }
+            Console.WriteLine("matrixList["+k+"].data["+i+",0]="+matrixList[k].data[j, 0]);
             o2 += (mat.data[i,j]*matrixList[k].data[j, 0]);
           }
+          Console.WriteLine("o2 "+o2);
         
         
-          res[i,0] = (tableau_b[i] -o1 -o2);
-          
-          res[i,0] = (res[i,0]/mat.data[i,i]); //Bug : ce truc donne �
+          res[i,0] = (tableau_b[i]-o1-o2);
+          if(!Double.IsNaN(res[i,0]/mat.data[i,i])){
+            res[i,0] = (res[i,0]/mat.data[i,i]);
+          }
         
         }
         Matrix xi = new Matrix(size,1);
