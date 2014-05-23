@@ -5,6 +5,7 @@ namespace MAN_Project
     public class Jacobi
     {
 
+<<<<<<< HEAD
         public double[,] Matrix jacobi(Matrx mat,int inter,int[] b)
         {
             // Création de la matrice et du tableau des x^(k) et intialisation de x^0 à 0
@@ -14,12 +15,18 @@ namespace MAN_Project
             {
                     res[0][f] = 0.0;
             }
+=======
+        public static Matrix jacobi(Matrix mat)
+        {
+            Matrix jacobi = new Matrix(mat.m, mat.n); //paye ton nomage de variable : la matrice s'apelle comme la mÃ©thode ^^
+>>>>>>> 83c5664ddf626353c7b7fdc083f849ecc301cbd9
             for(int i = 0; i < jacobi.m ; i++)
             {
                 for(int j = 0; j < jacobi.n ; j++)
                 {
                     jacobi.data[i,j] = 0.0;
                 }
+<<<<<<< HEAD
             }
 
             // Une première boucle pour le nombre d'itérations
@@ -41,6 +48,10 @@ namespace MAN_Project
             }
             return res;
                
+=======
+            }  
+            return jacobi;      
+>>>>>>> 83c5664ddf626353c7b7fdc083f849ecc301cbd9
         }
 
         public double somme(double[] line,int lineNumber, double xik)

@@ -23,7 +23,8 @@ namespace MAN_Project
 	    static void Main(string[] args)
 	    {
 	        Matrix mat = new Matrix(0, 0);
-
+	        PrintMenu();
+	        
 	        /* If there is a file in argument, we import it */
 	        if(args.Length > 0) {
 	        	Console.WriteLine(args[0]);
@@ -37,14 +38,13 @@ namespace MAN_Project
 
 	        mat.PrintMatrix();
 
-	        PrintMenu();
 	       	int choix = int.Parse(Console.ReadLine());
 
 	       	while(choix != 0) {
 
 	       		switch (choix) {
 				    case 1:
-				        Console.WriteLine(choix);
+				        FactorisationLU.Test1();
 				        break;
 				    case 2:
 				        Console.WriteLine("Factorisation de Cholesky : ");
@@ -55,7 +55,24 @@ namespace MAN_Project
 				        Console.WriteLine(choix);
 				       	break;
 				    case 4:
-				        Console.WriteLine(choix);
+				        Console.WriteLine("Gauss Seidel Algorithm");
+				        Gauss_Seidel.Test1();
+				        /*
+				        int ite = int.Parse(Console.ReadLine());
+     					while(ite<1){
+        					Console.WriteLine("Nice try ! \n  ");
+        					Console.WriteLine("Nombre d'iteration ?");
+        					ite = int.Parse(Console.ReadLine());
+      					}
+      					Console.WriteLine("Precision ?");
+     					double eps = Convert.ToDouble(Console.ReadLine());
+					    double[] tableau_b = new int[mat.m]; //tableau représentant b
+					    for (int i = 0 ; i < mat.n ; i++){
+					    	Console.WriteLine("b values ? "+(size-i)+" values left");
+					        tableau_b[i] = Convert.ToDouble(Console.ReadLine()); 
+					    }
+				        Gauss_Seidel.gauss_seidel(mat, ite, eps, tableau_b);
+				        */
 				        break;
 				    case 5:
 				        Console.WriteLine(choix);
@@ -64,7 +81,8 @@ namespace MAN_Project
 				        Console.WriteLine(choix);
 				       	break;
 				    case 7:
-				        Console.WriteLine(choix);
+				        Console.WriteLine("Approximation numérique par la méthode d'Euler explicite :\n");
+						EulerExplicite.Menu();
 				        break;
 				    case 8:
 				        Console.WriteLine(choix);
