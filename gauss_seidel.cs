@@ -41,7 +41,7 @@ namespace MAN_Project
         {
          double o1 = 0;
          double o2 = 0;
-         for(int j=0;j<i;j++)
+         for(int j=0;j!=i;j++)
           {
             if(!Double.IsNaN(res[j,0])){
               res[j,0]=0.0;
