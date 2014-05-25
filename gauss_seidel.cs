@@ -36,10 +36,10 @@ namespace MAN_Project
 
         for(int i = 0 ;i<size;i++){
           for(int j = 0;j!=i;j++ ){
-            o1 = -(mat.data[i,j]*xkplus1.data[j,0]);
+            o1 -= (mat.data[i,j]*xkplus1.data[j,0]);
           }
           for(int j=i+1;j<size;j++){
-            o2 = o2 - (mat.data[i,j]*matrixList[matrixList.Count-1].data[j,0]);
+            o2 -=  (mat.data[i,j]*matrixList[matrixList.Count-1].data[j,0]);
           }
           Console.WriteLine("o1 = "+o1+" o2 = "+o2);
           double val = (tableau_b[i]+o1+o2)/aii;
@@ -62,18 +62,25 @@ namespace MAN_Project
     }
 
     public static void Test1() {
-      Matrix mat = new Matrix(3,3);
+      Matrix mat = new Matrix(4,4);
       mat.ImportMatrix("gaussseidel.txt");
       mat.PrintMatrix();
-      double[] b = {1,1,1};
+      double[] b = {-19,1,12,1};
       Console.WriteLine("b : ");
       foreach(double d in b){
         Console.Write(d+" ");
       }
-      gauss_seidel(mat, 3, 0.0000000000000001, b);
+      gauss_seidel(mat, 2, 0.0000000000000001, b);
     }    
   }
 }
+
+
+
+
+
+
+
 
 
 
