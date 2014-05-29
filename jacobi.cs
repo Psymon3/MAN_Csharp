@@ -5,6 +5,7 @@ namespace MAN_Project
     public class Jacobi
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 =======
@@ -13,14 +14,18 @@ namespace MAN_Project
 <<<<<<< HEAD
 >>>>>>> parent of a5fe9c7... Merci pour les conflits sur jacobi
         public double[,] Matrix jacobi(Matrx mat,int inter,int[] b)
+=======
+        public Matrix jacobi(Matrix mat,int iter,int[] b)
+>>>>>>> 785e8bd5a17d9895a1c07fc7b7b1e5e68ff2f739
         {
             // Création de la matrice et du tableau des x^(k) et intialisation de x^0 à 0
             Matrix jacobi = new Matrix(mat.m, mat.n);
-            double[,] res = new double[jacobi.n,jacobi.n];
+            //double[,] res = new double[jacobi.n,jacobi.n];
             for (int f = 0; f < jacobi.n ;f++)
             {
-                    res[0][f] = 0.0;
+                   // res[0][f] = 0.0;
             }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -41,6 +46,9 @@ namespace MAN_Project
             Matrix jacobi = new Matrix(mat.m, mat.n); //paye ton nomage de variable : la matrice s'apelle comme la mÃ©thode ^^
 >>>>>>> 83c5664ddf626353c7b7fdc083f849ecc301cbd9
 >>>>>>> parent of a5fe9c7... Merci pour les conflits sur jacobi
+=======
+        
+>>>>>>> 785e8bd5a17d9895a1c07fc7b7b1e5e68ff2f739
             for(int i = 0; i < jacobi.m ; i++)
             {
                 for(int j = 0; j < jacobi.n ; j++)
@@ -63,16 +71,17 @@ namespace MAN_Project
                 for (int l = 0; l < jacobi.n; l++)
                 {
 
-                    for (i = 0; i < jacobi.m; i++)
+                    for (int i = 0; i < jacobi.m; i++)
                     {
-                        for (j = 0; j < jacobi.n; j++)
+                        for (int j = 0; j < jacobi.n; j++)
                         {
 
-                            res[k][l] = (b[i] / jacobi.data[i][i]) - somme(jacobi[i],i, res[k - 1][l]);
+                          //  res[k][l] = (b[i] / jacobi.data[i][i]) - somme(jacobi[i],i, res[k - 1][l]);
                         }
                     }
                 }
             }
+<<<<<<< HEAD
             return res;
                
 <<<<<<< HEAD
@@ -83,6 +92,9 @@ namespace MAN_Project
 
 =======
             }  
+=======
+            
+>>>>>>> 785e8bd5a17d9895a1c07fc7b7b1e5e68ff2f739
             return jacobi;      
 >>>>>>> 653fc96839b1743f3e604eb60c57d69d4a847c70
 =======
