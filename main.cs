@@ -52,7 +52,20 @@ namespace MAN_Project
 				        chol.PrintMatrix();
 				        break;
 				    case 3:
-				        Console.WriteLine(choix);
+				    		Console.WriteLine("Algorithme de Jacobi : \n");
+				    		Console.WriteLine("Nombre d'itérations ?");
+				    		int iteration = int.Parse(Console.ReadLine());
+				    		int[] b = new int[mat.n];
+				    		for(int i = 0;i < mat.n;i++)
+				    		{
+				    			Console.WriteLine("Coordonées "+(i+1)+" de b?");
+				    			b[i] = int.Parse(Console.ReadLine());
+				    		}
+				    		double[] resJacobi =  Jacobi.jacobi(mat,iteration,b);
+				    		for(int i=0; i < resJacobi.Length; i++)
+				    		{
+				    			Console.WriteLine(resJacobi[i]);
+				    		}
 				       	break;
 				    case 4:
 				        Console.WriteLine("Gauss Seidel Algorithm");
