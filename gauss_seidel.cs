@@ -7,6 +7,7 @@ namespace MAN_Project
   {
 
     public static void gauss_seidel(Matrix mat, int ite, double eps, double[] tableau_b){
+      Matrix gs = mat;
       int size = mat.m;
       List<Matrix> matrixList = new List<Matrix>();
       Console.WriteLine("\nWelcome in Gauss Seidel Algorithm");  
@@ -23,7 +24,7 @@ namespace MAN_Project
       Console.WriteLine("1st matrix");
       matrixList[0].PrintMatrix();
       double diff = 1;
-      double aii = mat.data[0,0];
+      double aii = gs.data[0,0];
       for(int k=0;diff>eps && k<ite;k++)
       {
         Matrix xkplus1 = new Matrix(size,1);
@@ -31,19 +32,30 @@ namespace MAN_Project
         {
           xkplus1.data[i,0]= (0);
         }
-        double o1 = 0;
-        double o2 = 0;
+        
 
         for(int i = 0 ;i<size;i++){
+        double o1 = 0;
+        double o2 = 0;
           for(int j = 0;j!=i;j++ ){
-            o1 -= (mat.data[i,j]*xkplus1.data[j,0]);
+            o1 += -(gs.data[i,j]*xkplus1.data[j,0]);
+           /* Console.WriteLine("-----------\n");
+            Console.WriteLine("xkplus1.data[j,0] = "+xkplus1.data[j,0]);
+            Console.WriteLine("gs.data[i,j] = "+gs.data[i,j]);
+            Console.WriteLine("i "+i+" j "+j+" o1 = "+o1);
+            Console.WriteLine("-----------\n");*/
           }
           for(int j=i+1;j<size;j++){
-            o2 -=  (mat.data[i,j]*matrixList[matrixList.Count-1].data[j,0]);
+            o2 +=  -(gs.data[i,j]*matrixList[matrixList.Count-1].data[j,0]);/*
+            Console.WriteLine("-----------\n");
+            Console.WriteLine("matrixList[matrixList.Count-1].data[j,0] "+matrixList[matrixList.Count-1].data[j,0]);
+            Console.WriteLine("gs.data[i,j] = "+gs.data[i,j]);
+            Console.WriteLine("i "+i+" j "+j+" o1 = "+o2);
+            Console.WriteLine("-----------\n");*/
           }
-          Console.WriteLine("o1 = "+o1+" o2 = "+o2);
+          
           double val = (tableau_b[i]+o1+o2)/aii;
-          Console.WriteLine("x"+i+"k = "+val);
+         // Console.WriteLine("\n ----------------\n x"+i+"k+1 = "+val);
           xkplus1.data[i,0]=val;
             
         }
@@ -62,15 +74,25 @@ namespace MAN_Project
     }
 
     public static void Test1() {
-      Matrix mat = new Matrix(4,4);
+      Matrix mat = new Matrix(3,3);
       mat.ImportMatrix("gaussseidel.txt");
       mat.PrintMatrix();
-      double[] b = {-19,1,12,1};
+      double[] b = {1,1,1};
       Console.WriteLine("b : ");
       foreach(double d in b){
         Console.Write(d+" ");
       }
-      gauss_seidel(mat, 2, 0.0000000000000001, b);
+      gauss_seidel(mat, 2, 0.00001, b);
+
+      Matrix mat2 = new Matrix(3,3);
+      mat2.ImportMatrix("gaussseidel2.txt");
+      mat2.PrintMatrix();
+      double[] b2 = {7,-4,9};
+      Console.WriteLine("b : ");
+      foreach(double d in b2){
+        Console.Write(d+" ");
+      }
+      gauss_seidel(mat2, 3, 0.00001, b2);
     }    
   }
 }
