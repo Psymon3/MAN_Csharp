@@ -6,8 +6,12 @@ namespace MAN_Project
     {
 <<<<<<< HEAD
 
+<<<<<<< HEAD
 =======
 >>>>>>> 653fc96839b1743f3e604eb60c57d69d4a847c70
+=======
+<<<<<<< HEAD
+>>>>>>> parent of a5fe9c7... Merci pour les conflits sur jacobi
         public double[,] Matrix jacobi(Matrx mat,int inter,int[] b)
         {
             // Création de la matrice et du tableau des x^(k) et intialisation de x^0 à 0
@@ -17,6 +21,7 @@ namespace MAN_Project
             {
                     res[0][f] = 0.0;
             }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
         public static Matrix jacobi(Matrix mat)
@@ -29,6 +34,13 @@ namespace MAN_Project
         {
             Matrix jacobi = new Matrix(mat.m, mat.n); //paye ton nomage de variable : la matrice s'apelle comme la mÃ©thode ^^
 >>>>>>> 653fc96839b1743f3e604eb60c57d69d4a847c70
+=======
+=======
+        public static Matrix jacobi(Matrix mat)
+        {
+            Matrix jacobi = new Matrix(mat.m, mat.n); //paye ton nomage de variable : la matrice s'apelle comme la mÃ©thode ^^
+>>>>>>> 83c5664ddf626353c7b7fdc083f849ecc301cbd9
+>>>>>>> parent of a5fe9c7... Merci pour les conflits sur jacobi
             for(int i = 0; i < jacobi.m ; i++)
             {
                 for(int j = 0; j < jacobi.n ; j++)
@@ -36,9 +48,12 @@ namespace MAN_Project
                     jacobi.data[i,j] = 0.0;
                 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 653fc96839b1743f3e604eb60c57d69d4a847c70
+=======
+>>>>>>> parent of a5fe9c7... Merci pour les conflits sur jacobi
             }
 
             // Une première boucle pour le nombre d'itérations
@@ -61,6 +76,7 @@ namespace MAN_Project
             return res;
                
 <<<<<<< HEAD
+<<<<<<< HEAD
 
             }  
             return jacobi;      
@@ -69,6 +85,12 @@ namespace MAN_Project
             }  
             return jacobi;      
 >>>>>>> 653fc96839b1743f3e604eb60c57d69d4a847c70
+=======
+=======
+            }  
+            return jacobi;      
+>>>>>>> 83c5664ddf626353c7b7fdc083f849ecc301cbd9
+>>>>>>> parent of a5fe9c7... Merci pour les conflits sur jacobi
         }
 
         public double somme(double[] line,int lineNumber, double xik)
@@ -85,6 +107,10 @@ namespace MAN_Project
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 >>>>>>> 653fc96839b1743f3e604eb60c57d69d4a847c70
+=======
+}
+>>>>>>> parent of a5fe9c7... Merci pour les conflits sur jacobi
