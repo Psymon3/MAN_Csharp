@@ -70,6 +70,7 @@ namespace MAN_Project
 				    case 4:
 				        Console.WriteLine("Gauss Seidel Algorithm");
 				        Gauss_Seidel.Test1();
+				        Gauss_Seidel.Test2();
 				        /*
 				        int ite = int.Parse(Console.ReadLine());
      					while(ite<1){
@@ -91,7 +92,9 @@ namespace MAN_Project
 				        Console.WriteLine(choix);
 				        break;
 				    case 6:
-				        Console.WriteLine(choix);
+				        Console.WriteLine("Gauss Seidel Relaxation");
+				        Gauss_Seidel_Relaxation.Test1();
+				       // Gauss_Seidel_Relaxation.Test2();
 				       	break;
 				    case 7:
 				        Console.WriteLine("Approximation numérique par la méthode d'Euler explicite :\n");

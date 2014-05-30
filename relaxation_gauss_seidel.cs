@@ -3,10 +3,11 @@ using System.Collections.Generic;
 
 namespace MAN_Project
 {
-  public class Gauss_Seidel
+  public class Gauss_Seidel_Relaxation
   {
 
-    public static void gauss_seidel(Matrix mat, int ite, double eps, double[] tableau_b){
+    public static void gauss_seidel_relaxation(Matrix mat, int ite, double eps, double[] tableau_b, double omega){
+      double w = omega;
       Matrix gs = mat;
       int size = mat.m;
       List<Matrix> matrixList = new List<Matrix>();
@@ -54,7 +55,7 @@ namespace MAN_Project
             Console.WriteLine("-----------\n");*/
           }
           
-          double val = (tableau_b[i]+o1+o2)/aii;
+          double val = (w*(tableau_b[i]+o1+o2)/aii)+(1-w)*matrixList[matrixList.Count-1].data[i,0];
          // Console.WriteLine("\n ----------------\n x"+i+"k+1 = "+val);
           xkplus1.data[i,0]=val;
             
@@ -82,10 +83,9 @@ namespace MAN_Project
       foreach(double d in b){
         Console.Write(d+" ");
       }
-      gauss_seidel(mat, 2, 0.00001, b);      
-    }
-
-    public static void Test2() {
+      gauss_seidel_relaxation(mat, 2, 0.00001, b, 0.5);
+    }   
+    public static void Test2(){
       Matrix mat2 = new Matrix(3,3);
       mat2.ImportMatrix("gaussseidel2.txt");
       mat2.PrintMatrix();
@@ -94,8 +94,9 @@ namespace MAN_Project
       foreach(double d in b2){
         Console.Write(d+" ");
       }
-      gauss_seidel(mat2, 3, 0.00001, b2);
-    }    
+      gauss_seidel_relaxation(mat2, 3, 0.00001, b2, 0.5);
+    } 
+
   }
 }
 
