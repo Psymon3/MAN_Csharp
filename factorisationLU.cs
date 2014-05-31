@@ -63,7 +63,7 @@ namespace MAN_Project
 	 	}
 
 	 	for (int k = 0; k <(A.n-1); k++) {
-	 		U.data[A.n;A.n] = A.data[A.n,A.n] - (L.data[A.n,k] * U.data[k,A.n]);
+	 		U.data[A.n,A.n] = A.data[A.n,A.n] - (L.data[A.n,k] * U.data[k,A.n]);
 	 	}
 
 	 	Matrix[] res = new Matrix[2];
