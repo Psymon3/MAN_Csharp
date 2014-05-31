@@ -15,7 +15,7 @@ namespace MAN_Project
 	 		}
 	 	}
 
-	 	for (int k = 0; k < A.n; k++) {
+	 	for (int k = 0; k < (A.n - 1); k++) {
 
 		 	for (int i = k+1; i<A.m; i++) {
 		 		L.data[i, k] = (A.data[i, k]/A.data[k, k])	;
