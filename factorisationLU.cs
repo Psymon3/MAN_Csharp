@@ -52,7 +52,7 @@ namespace MAN_Project
 	 	for (int i = 0; i < (A.n-1); i++){
 	 		for (int j = i; j<A.n; j++) {
 	 			for (int k = 0; k < i; k++) {
-	 				U.data[i,j] = A.data[i,j] - (L.data.[i,k] * U.data[k,j] ) ;
+	 				U.data[i,j] = A.data[i,j] - (L.data[i,k] * U.data[k,j] ) ;
 	 			}
 	 		}
 	 		for (int j = i+1; j<A.n;j++) {
