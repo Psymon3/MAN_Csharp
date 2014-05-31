@@ -94,8 +94,25 @@ namespace MAN_Project
 				        break;
 				    case 6:
 				        Console.WriteLine("Gauss Seidel Relaxation");
-				        Gauss_Seidel_Relaxation.Test1();
-				       // Gauss_Seidel_Relaxation.Test2();
+				        Console.WriteLine("1 = Test 1 ; 2 = Test 2 : 3 = your matrice ; 0 = exit");
+				        int n = int.Parse(Console.ReadLine());
+				        while(n != 0){
+				        	switch(n){
+				        		case 1:
+				        		Gauss_Seidel_Relaxation.Test1();
+				        		break;
+
+				        		case 2:
+				        		Gauss_Seidel_Relaxation.Test2();
+				        		break;
+
+				        		case 3:
+				        		Gauss_Seidel_Relaxation.UserMatrixParams(mat);
+				        		break;
+				        	}
+				        	Console.WriteLine("1 = Test 1 ; 2 = Test 2 : 3 = your matrice ; 0 = exit");
+				       		n = int.Parse(Console.ReadLine());
+				       	}
 				       	break;
 				    case 7:
 				        Console.WriteLine("Approximation numérique par la méthode d'Euler explicite :\n");

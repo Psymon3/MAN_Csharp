@@ -74,6 +74,32 @@ namespace MAN_Project
       final.PrintMatrix();
     }
 
+
+    public static void UserMatrixParams(Matrix mat) { //Si l'utilisateur utilise sa propre matrice, il remplit les paramètres de GS avec cette fonction
+      Console.WriteLine("Nb Iteration ?");
+      int ite = int.Parse(Console.ReadLine());
+      while(ite<1){
+        Console.WriteLine("Nice try ! \n  ");
+        Console.WriteLine("Nombre d'iteration ?");
+        ite = int.Parse(Console.ReadLine());
+      }
+      Console.WriteLine("Precision ? (example 0,001 .... , not a .) ");
+      double eps = Convert.ToDouble(Console.ReadLine());
+      Console.WriteLine("Omega ? (example 1,5 .... , not a .) ");
+      double omega = Convert.ToDouble(Console.ReadLine());
+      double[] tableau_b = new double[mat.m]; //tableau représentant b
+      for (int i = 0 ; i < mat.n ; i++){
+        Console.WriteLine("b values ? "+(mat.n-i)+" values left");
+        tableau_b[i] = Convert.ToDouble(Console.ReadLine());
+      }
+     
+      Console.WriteLine("b : ");
+      foreach(double d in tableau_b){
+        Console.Write(d+" ");
+      }
+      gauss_seidel_relaxation(mat, ite, eps, tableau_b, omega);
+    }
+
     public static void Test1() {
       Matrix mat = new Matrix(3,3);
       mat.ImportMatrix("gaussseidel.txt");

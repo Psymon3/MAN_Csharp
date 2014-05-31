@@ -6,7 +6,7 @@ namespace MAN_Project
   public class Gauss_Seidel
   {
 
-    public static void gauss_seidel(Matrix mat, int ite, double eps, double[] tableau_b){
+    public static void gauss_seidel(Matrix mat, int ite, double eps, double[] tableau_b){ //Algo principal de GS
       Matrix gs = mat;
       int size = mat.m;
       List<Matrix> matrixList = new List<Matrix>();
@@ -96,7 +96,7 @@ namespace MAN_Project
       }
       gauss_seidel(mat2, 3, 0.00001, b2);
     }   
-    public static void UserMatrixParams(Matrix mat) {
+    public static void UserMatrixParams(Matrix mat) { //Si l'utilisateur utilise sa propre matrice, il remplit les paramètres de GS avec cette fonction
       Console.WriteLine("Nb Iteration ?");
       int ite = int.Parse(Console.ReadLine());
       while(ite<1){
