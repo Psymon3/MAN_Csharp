@@ -52,18 +52,18 @@ namespace MAN_Project
 	 	for (int i = 0; i < (A.n-1); i++){
 	 		for (int j = i; j<A.n; j++) {
 	 			for (int k = 0; k < i; k++) {
-	 				U.data[i,j] = A.data[i,j] - L.data.[i,k]*U.data[k,j];
+	 				U.data[i,j] = A.data[i,j] - (L.data.[i,k] * U.data[k,j] ) ;
 	 			}
 	 		}
 	 		for (int j = i+1; j<A.n;j++) {
 	 			for (int k = 0; k<i; k++) {
-	 				L.data[j,i] = (A.data[j,i]-L.data[j,k]*U.data[k,i])/(U.data[i,i])
+	 				L.data[j,i] = (A.data[j,i]-L.data[j,k] * U.data[k,i])/(U.data[i,i]);
 	 			}
 	 		}
 	 	}
 
 	 	for (int k = 0; k <(A.n-1); k++) {
-	 		U.data[A.n;A.n] = A.data[A.n,A.n] - L.data[A.n,k]*U.data[k,A.n];
+	 		U.data[A.n;A.n] = A.data[A.n,A.n] - (L.data[A.n,k] * U.data[k,A.n]);
 	 	}
 
 	 	Matrix[] res = new Matrix[2];
