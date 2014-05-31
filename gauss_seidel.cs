@@ -104,7 +104,7 @@ namespace MAN_Project
         Console.WriteLine("Nombre d'iteration ?");
         ite = int.Parse(Console.ReadLine());
       }
-      Console.WriteLine("Precision ?");
+      Console.WriteLine("Precision ? (example 0,001 .... , not a .) ");
       double eps = Convert.ToDouble(Console.ReadLine());
 
       double[] tableau_b = new double[mat.m]; //tableau représentant b
