@@ -2,7 +2,7 @@ using System;
 
 namespace MAN_Project
 {
-	class MainClass
+	class Main_Class
 	{
 		static void PrintMenu() {
 			Console.WriteLine("\nMenu:");
@@ -14,8 +14,7 @@ namespace MAN_Project
 	        Console.WriteLine("5. Méthode de relaxation pour Jacobi");
 	        Console.WriteLine("6. Méthode de relaxation pour Gauss-Seidel");
 	        Console.WriteLine("7. Schéma d'Euler explicite");
-	        Console.WriteLine("8. Schéma d'Euler implicite");
-	       	Console.WriteLine("9. Schéma de Runge-Kutta d'ordre 4");
+	       	Console.WriteLine("8. Schéma de Runge-Kutta d'ordre 4");
 	       	Console.WriteLine("0. Quitter");
 	       	Console.WriteLine("\nChoix:");
 		}
@@ -44,27 +43,31 @@ namespace MAN_Project
 
 	       		switch (choix) {
 				    case 1:
-				        FactorisationLU.Test1();
+				        //FactorisationLU.Test1();
+				        Matrix[] resFactoLu = FactorisationLU.Factorisation(mat);
+     					resFactoLu[0].PrintMatrix();
+     					resFactoLu[1].PrintMatrix();
 				        break;
 				    case 2:
 				        Console.WriteLine("Factorisation de Cholesky : ");
-				        Cholesky.test1();
-								Cholesky.test2();
+				        //Cholesky.test1();
+						//Cholesky.test2();
+						Matrix resCholesky = Cholesky.chol(mat);
+            			Console.WriteLine("Decomposition obtenu :");
+            			resCholesky.PrintMatrix();
 				        break;
 				    case 3:
-				    		Console.WriteLine("Algorithme de Jacobi : \n");
-				    		Console.WriteLine("Nombre d'itérations ?");
-				    		int iteration = int.Parse(Console.ReadLine());
-				    		int[] b = new int[mat.n];
-				    		for(int i = 0;i < mat.n;i++)
-				    		{
-				    			Console.WriteLine("Coordonées "+(i+1)+" de b?");
-				    			b[i] = int.Parse(Console.ReadLine());
-				    		}
-				    		double[] resJacobi =  Jacobi.jacobi(mat,iteration,b);
-				    		for(int i=0; i < resJacobi.Length; i++)
-				    		{
-				    			Console.WriteLine(resJacobi[i]);
+				    	Console.WriteLine("Algorithme de Jacobi : \n");
+				    	Console.WriteLine("Nombre d'itérations ?");
+				    	int iteration = int.Parse(Console.ReadLine());
+				    	int[] b = new int[mat.n];
+				    	for(int i = 0;i < mat.n;i++) {
+				    		Console.WriteLine("Coordonées "+(i+1)+" de b?");
+				    		b[i] = int.Parse(Console.ReadLine());
+				    	}
+				    	double[] resJacobi =  Jacobi.jacobi(mat,iteration,b);
+				    	for(int i=0; i < resJacobi.Length; i++) {
+			    			Console.WriteLine(resJacobi[i]);
 				    		}
 				       	break;
 				    case 4:
@@ -74,15 +77,15 @@ namespace MAN_Project
 				        while(nbchoix != 0){
 				        	switch(nbchoix){
 				        		case 1:
-				        		Gauss_Seidel.Test1();
+				        		GaussSeidel.Test1();
 				        		break;
 
 				        		case 2:
-				        		Gauss_Seidel.Test2();
+				        		GaussSeidel.Test2();
 				        		break;
 
 				        		case 3:
-				        		Gauss_Seidel.UserMatrixParams(mat);
+				        		GaussSeidel.UserMatrixParams(mat);
 				        		break;
 				        	}
 				        	Console.WriteLine("1 = Test 1 ; 2 = Test 2 : 3 = your matrice ; 0 = exit");
@@ -99,15 +102,15 @@ namespace MAN_Project
 				        while(n != 0){
 				        	switch(n){
 				        		case 1:
-				        		Gauss_Seidel_Relaxation.Test1();
+				        		GaussSeidelRelax.Test1();
 				        		break;
 
 				        		case 2:
-				        		Gauss_Seidel_Relaxation.Test2();
+				        		GaussSeidelRelax.Test2();
 				        		break;
 
 				        		case 3:
-				        		Gauss_Seidel_Relaxation.UserMatrixParams(mat);
+				        		GaussSeidelRelax.UserMatrixParams(mat);
 				        		break;
 				        	}
 				        	Console.WriteLine("1 = Test 1 ; 2 = Test 2 : 3 = your matrice ; 0 = exit");
@@ -119,11 +122,8 @@ namespace MAN_Project
 						EulerExplicite.Menu();
 				        break;
 				    case 8:
-				        Console.WriteLine(choix);
+				        RungeKutta.Menu();
 				        break;
-				    case 9:
-				        Console.WriteLine(choix);
-				       	break;
 				    default:
 				        Console.WriteLine("Mauvais choix");
 				        break;

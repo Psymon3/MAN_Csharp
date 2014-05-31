@@ -3,7 +3,7 @@ using System;
 namespace MAN_Project
 {
 
-    public class Runge_Kutta
+    public class RungeKutta
     {
 
         public delegate double fonction (double t, double yt);  // Fonction déléguée, permet d'appeler n'importe quelle fonction test en une seule ligne sans passer par un switch.

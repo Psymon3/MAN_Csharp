@@ -3,10 +3,11 @@ using System.Collections.Generic;
 
 namespace MAN_Project
 {
-  public class Gauss_Seidel
+  public class GaussSeidelRelax
   {
 
-    public static void gauss_seidel(Matrix mat, int ite, double eps, double[] tableau_b){ //Algo principal de GS
+    public static void gauss_seidel_relaxation(Matrix mat, int ite, double eps, double[] tableau_b, double omega){
+      double w = omega;
       Matrix gs = mat;
       int size = mat.m;
       List<Matrix> matrixList = new List<Matrix>();
@@ -54,7 +55,7 @@ namespace MAN_Project
             Console.WriteLine("-----------\n");*/
           }
           
-          double val = (tableau_b[i]+o1+o2)/aii;
+          double val = (w*(tableau_b[i]+o1+o2)/aii)+(1-w)*matrixList[matrixList.Count-1].data[i,0];
          // Console.WriteLine("\n ----------------\n x"+i+"k+1 = "+val);
           xkplus1.data[i,0]=val;
             
@@ -73,29 +74,7 @@ namespace MAN_Project
       final.PrintMatrix();
     }
 
-    public static void Test1() {
-      Matrix mat = new Matrix(3,3);
-      mat.ImportMatrix("gaussseidel.txt");
-      mat.PrintMatrix();
-      double[] b = {1,1,1};
-      Console.WriteLine("b : ");
-      foreach(double d in b){
-        Console.Write(d+" ");
-      }
-      gauss_seidel(mat, 2, 0.00001, b);      
-    }
 
-    public static void Test2() {
-      Matrix mat2 = new Matrix(3,3);
-      mat2.ImportMatrix("gaussseidel2.txt");
-      mat2.PrintMatrix();
-      double[] b2 = {7,-4,9};
-      Console.WriteLine("b : ");
-      foreach(double d in b2){
-        Console.Write(d+" ");
-      }
-      gauss_seidel(mat2, 3, 0.00001, b2);
-    }   
     public static void UserMatrixParams(Matrix mat) { //Si l'utilisateur utilise sa propre matrice, il remplit les paramètres de GS avec cette fonction
       Console.WriteLine("Nb Iteration ?");
       int ite = int.Parse(Console.ReadLine());
@@ -106,7 +85,8 @@ namespace MAN_Project
       }
       Console.WriteLine("Precision ? (example 0,001 .... , not a .) ");
       double eps = Convert.ToDouble(Console.ReadLine());
-
+      Console.WriteLine("Omega ? (example 1,5 .... , not a .) ");
+      double omega = Convert.ToDouble(Console.ReadLine());
       double[] tableau_b = new double[mat.m]; //tableau représentant b
       for (int i = 0 ; i < mat.n ; i++){
         Console.WriteLine("b values ? "+(mat.n-i)+" values left");
@@ -117,8 +97,32 @@ namespace MAN_Project
       foreach(double d in tableau_b){
         Console.Write(d+" ");
       }
-      gauss_seidel(mat, ite, eps, tableau_b);
+      gauss_seidel_relaxation(mat, ite, eps, tableau_b, omega);
+    }
+
+    public static void Test1() {
+      Matrix mat = new Matrix(3,3);
+      mat.ImportMatrix("matrixes/gaussseidel.txt");
+      mat.PrintMatrix();
+      double[] b = {1,1,1};
+      Console.WriteLine("b : ");
+      foreach(double d in b){
+        Console.Write(d+" ");
+      }
+      gauss_seidel_relaxation(mat, 2, 0.00001, b, 0.5);
+    }   
+    public static void Test2(){
+      Matrix mat2 = new Matrix(3,3);
+      mat2.ImportMatrix("matrixes/gaussseidel2.txt");
+      mat2.PrintMatrix();
+      double[] b2 = {7,-4,9};
+      Console.WriteLine("b : ");
+      foreach(double d in b2){
+        Console.Write(d+" ");
+      }
+      gauss_seidel_relaxation(mat2, 3, 0.00001, b2, 0.5);
     } 
+
   }
 }
 

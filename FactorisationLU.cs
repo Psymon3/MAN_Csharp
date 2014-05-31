@@ -38,7 +38,7 @@ namespace MAN_Project
 
     public static void Test1() {
     	Matrix mat = new Matrix(0,0);
-    	mat.ImportMatrix("factorisationLU.txt");
+    	mat.ImportMatrix("matrixes/factorisationLU.txt");
      	Matrix[] res = Factorisation(mat);
      	res[0].PrintMatrix();
      	res[1].PrintMatrix();
