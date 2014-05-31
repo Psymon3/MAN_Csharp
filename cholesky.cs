@@ -39,14 +39,20 @@ namespace MAN_Project
     public static void test1(){
       Matrix mat = new Matrix(0,0);
       mat.ImportMatrix("cholesky1.txt");
+      Console.WriteLine("Test avec la premiere matrice :");
+      mat.PrintMatrix();
       Matrix res = chol(mat);
+      Console.WriteLine("Decomposition obtenu :");
       res.PrintMatrix();
     }
 
     public static void test2(){
       Matrix mat = new Matrix(0,0);
       mat.ImportMatrix("cholesky2.txt");
+      Console.WriteLine("Test avec la seconde matrice :");
+      mat.PrintMatrix();
       Matrix res = chol(mat);
+      Console.WriteLine("Decomposition obtenu :");
       res.PrintMatrix();
     }
 

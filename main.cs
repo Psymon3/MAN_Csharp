@@ -24,7 +24,7 @@ namespace MAN_Project
 	    {
 	        Matrix mat = new Matrix(0, 0);
 	        PrintMenu();
-	        
+
 	        /* If there is a file in argument, we import it */
 	        if(args.Length > 0) {
 	        	Console.WriteLine(args[0]);
@@ -48,8 +48,8 @@ namespace MAN_Project
 				        break;
 				    case 2:
 				        Console.WriteLine("Factorisation de Cholesky : ");
-				        Matrix chol = Cholesky.chol(mat);
-				        chol.PrintMatrix();
+				        Cholesky.test1();
+								Cholesky.test2();
 				        break;
 				    case 3:
 				    		Console.WriteLine("Algorithme de Jacobi : \n");
@@ -83,7 +83,7 @@ namespace MAN_Project
 					    double[] tableau_b = new int[mat.m]; //tableau représentant b
 					    for (int i = 0 ; i < mat.n ; i++){
 					    	Console.WriteLine("b values ? "+(size-i)+" values left");
-					        tableau_b[i] = Convert.ToDouble(Console.ReadLine()); 
+					        tableau_b[i] = Convert.ToDouble(Console.ReadLine());
 					    }
 				        Gauss_Seidel.gauss_seidel(mat, ite, eps, tableau_b);
 				        */
