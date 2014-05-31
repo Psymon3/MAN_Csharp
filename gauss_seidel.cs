@@ -95,7 +95,30 @@ namespace MAN_Project
         Console.Write(d+" ");
       }
       gauss_seidel(mat2, 3, 0.00001, b2);
-    }    
+    }   
+    public static void UserMatrixParams(Matrix mat) {
+      Console.WriteLine("Nb Iteration ?");
+      int ite = int.Parse(Console.ReadLine());
+      while(ite<1){
+        Console.WriteLine("Nice try ! \n  ");
+        Console.WriteLine("Nombre d'iteration ?");
+        ite = int.Parse(Console.ReadLine());
+      }
+      Console.WriteLine("Precision ?");
+      double eps = Convert.ToDouble(Console.ReadLine());
+
+      double[] tableau_b = new double[mat.m]; //tableau représentant b
+      for (int i = 0 ; i < mat.n ; i++){
+        Console.WriteLine("b values ? "+(mat.n-i)+" values left");
+        tableau_b[i] = Convert.ToDouble(Console.ReadLine());
+      }
+     
+      Console.WriteLine("b : ");
+      foreach(double d in tableau_b){
+        Console.Write(d+" ");
+      }
+      gauss_seidel(mat, ite, eps, tableau_b);
+    } 
   }
 }
 
